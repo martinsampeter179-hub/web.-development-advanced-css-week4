@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendWise — Personal Finance Dashboard</title>
+  
+  <!-- Custom Google Fonts (Inter & Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Grid Dashboard Shell -->
+  <div class="dashboard-shell">
+
+    <!-- 1. Sidebar Component -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>SpendWise</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="#" class="nav-item">Analytics</a>
+        <a href="#" class="nav-item">Transactions</a>
+        <a href="#" class="nav-item">Budgets</a>
+        <a href="#" class="nav-item">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- 2. Header Component -->
+    <header class="header">
+      <div class="header-search">
+        <input type="text" placeholder="Search transactions..." aria-label="Search">
+      </div>
+      <div class="user-profile">
+        <span class="user-name">Alex Johnson</span>
+        <div class="avatar" aria-label="User Avatar">AJ</div>
+      </div>
+    </header>
+
+    <!-- 3. Main Content Area containing the Category Cards Grid -->
+    <main class="main-content">
+      <div class="content-header">
+        <h1>Monthly Expense Categories</h1>
+        <p>Overview of static allocations and spending metrics for September 2026.</p>
+      </div>
+
+      <!-- Category Cards Layout (Grid Inside Main) -->
+      <div class="cards-grid">
+        
+        <!-- Card 1: Food -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Food & Dining</h3>
+            <span class="category-badge badge-food">Essential</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$450.00</p>
+            <p class="subtext">Budget: $500.00</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Transport -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Transport</h3>
+            <span class="category-badge badge-transport">Travel</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$180.50</p>
+            <p class="subtext">Budget: $200.00</p>
+          </div>
+        </article>
+
+        <!-- Card 3: Rent -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Housing / Rent</h3>
+            <span class="category-badge badge-rent">Fixed</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$1,200.00</p>
+            <p class="subtext">Budget: $1,200.00</p>
+          </div>
+        </article>
+
+        <!-- Card 4: Entertainment -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Entertainment</h3>
+            <span class="category-badge badge-entertainment">Leisure</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$95.00</p>
+            <p class="subtext">Budget: $150.00</p>
+          </div>
+        </article>
+
+        <!-- Card 5: Savings -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Savings</h3>
+            <span class="category-badge badge-savings">Goal</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$600.00</p>
+            <p class="subtext">Target: $600.00</p>
+          </div>
+        </article>
+
+        <!-- Card 6: Utilities -->
+        <article class="card" tabindex="0">
+          <div class="card-header">
+            <h3>Utilities</h3>
+            <span class="category-badge badge-utilities">Fixed</span>
+          </div>
+          <div class="card-body">
+            <p class="amount">$140.25</p>
+            <p class="subtext">Budget: $160.00</p>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>
