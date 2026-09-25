@@ -1,0 +1,263 @@
+/* ==========================================================================
+   1. CSS CUSTOM PROPERTIES (LIGHT MODE DEFAULT)
+   ========================================================================== */
+:root {
+  --brand-color: #2563eb;          /* Vibrant Royal Blue */
+  --accent-color: #059669;         /* Emerald Accent */
+  --surface-bg: #f8fafc;           /* Light Surface Canvas */
+  --card-bg: #ffffff;              /* Pure White Card Fill */
+  --text-primary: #0f172a;         /* High-Contrast Charcoal */
+  --text-secondary: #64748b;       /* Slate Gray Subtitles */
+  --border-color: #e2e8f0;         /* Subtle Boundary Borders */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+  --border-radius: 12px;
+}
+
+/* ==========================================================================
+   STRETCH GOAL: DARK THEME OVERRIDES
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-color: #3b82f6;
+    --accent-color: #10b981;
+    --surface-bg: #0f172a;        /* Dark Navy Canvas */
+    --card-bg: #1e293b;           /* Slate Dark Card Fill */
+    --text-primary: #f8fafc;        /* Bright Off-White Text */
+    --text-secondary: #94a3b8;      /* Light Slate Secondary */
+    --border-color: #334155;        /* Muted Dark Borders */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--surface-bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   3. MAIN CSS GRID LAYOUT
+   ========================================================================== */
+.dashboard-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+/* Sidebar Grid Placement */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border-color);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Header Grid Placement */
+.header {
+  grid-area: header;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Main Content Grid Placement */
+.main-content {
+  grid-area: main;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================================================
+   4. FLEXBOX INTERNAL ALIGNMENTS
+   ========================================================================== */
+
+/* Sidebar Navigation */
+.brand h2 {
+  color: var(--brand-color);
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--brand-color);
+}
+
+/* Header Search & Profile */
+.header-search input {
+  font-family: 'Inter', sans-serif;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--surface-bg);
+  color: var(--text-primary);
+  width: 260px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Cards Internal Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ==========================================================================
+   5. CARD DESIGN & MICRO-INTERACTIONS
+   ========================================================================== */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  outline: none;
+  cursor: pointer;
+  
+  /* Smooth micro-interaction setup (<= 250ms constraint) */
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+/* Hover and Keyboard Focus Micro-Interactions */
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--brand-color);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: var(--surface-bg);
+  color: var(--text-secondary);
+}
+
+.amount {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINT (COLLAPSE BELOW 768PX)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .dashboard-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main";
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .header {
+    padding: 16px 20px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
